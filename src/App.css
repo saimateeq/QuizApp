@@ -1,0 +1,63 @@
+.welcomepage{
+  box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.483);
+}
+.WelcomePageBG{
+  background-color: rgba(0, 0, 0, 0.502);
+}
+.MainH{
+  background: linear-gradient(to right,red, yellow);
+  -webkit-background-clip: text ;
+  color: transparent;
+}
+.top5-12{
+  top:42% ;
+  font-size: 72px;
+}
+.headingAni{
+  animation: headingAnimation 1s linear;
+  animation-fill-mode: forwards;
+}
+@keyframes headingAnimation {
+  from{
+    top: 42%;
+    font-size: 72px;
+  }
+  to{
+    top: 2%;
+    font-size: 50px;
+  }
+  
+}
+.BtnsShow{
+  display: flex;
+  transform: translateY(384px);
+  animation: up 1.2s linear;
+  animation-fill-mode: forwards;
+  /* box-shadow: 4px 4px 8px white; */
+}
+@keyframes up {
+  from{transform: translateY(384px);}
+  to{transform: translateY(0);}
+}
+.bg-black-blur{
+  background-color: rgba(0, 0, 0, 0.644);
+}
+.md-left-1-6{
+  left : 0
+}
+.custom-w{
+  width: 45%;
+}
+.left-custom{
+  left: 10%;
+}
+@media (max-width: 768px) {
+    .left-custom {
+        left: 0;
+    }
+}
+@media (min-width: 768px) {
+    .md-left-1-6 {
+        left: 17%;
+    }
+}
