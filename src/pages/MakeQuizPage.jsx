@@ -96,11 +96,11 @@ const MakeQuizPage = () => {
     dispatch(setTimePro(TimeProInp?.current.value))
     dispatch(setQuiz({
       QuizID: 0,
-      Title: TitleInp?.current.value,
-      Passcode: CodeInp?.current.value,
-      TotalQue: NoOfQueInp?.current.value,
-      EachScore: EachScoreInp?.current.value,
-      TimePro: TimeProInp?.current.value,
+      Title: Number(TitleInp?.current.value),
+      Passcode: Number(CodeInp?.current.value),
+      TotalQue: Number(NoOfQueInp?.current.value),
+      EachScore:Number(EachScoreInp?.current.value),
+      TimePro: Number(TimeProInp?.current.value),
       Questions: [
         { Que: "", Options: ["", "", "", ""], CorrectOption: "" }
       ]

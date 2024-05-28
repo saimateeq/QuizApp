@@ -10,6 +10,7 @@ export const StudentObjSlice = createSlice({
           QueAns :[
           ],
           YourScore : 0,
+          NoOfCorrectAns : 0,
         },
         QuizAddress : ""
       },
@@ -21,6 +22,10 @@ export const StudentObjSlice = createSlice({
       UpdateScore : (state , action) => {
         state.value.Obj.YourScore = action.payload
       },
+      UpdateCorrectOpt : (state , action) => {
+        state.value.Obj.NoOfCorrectAns= action.payload
+      },
+      
       setQuizAddress : (state , action) => {
         state.value.QuizAddress = action.payload
       },
@@ -33,5 +38,5 @@ export const StudentObjSlice = createSlice({
     },
   })
 
-export const { setName , UpdateScore , setQuizAddress , setQueAns , setDateOfSub} = StudentObjSlice.actions
+export const { setName , UpdateScore , setQuizAddress , setQueAns , setDateOfSub , UpdateCorrectOpt} = StudentObjSlice.actions
 export default StudentObjSlice.reducer

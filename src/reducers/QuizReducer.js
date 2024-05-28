@@ -4,11 +4,11 @@ export const QuizSlice = createSlice({
     name: 'Quiz',
     initialState: {
       value:{
-          Title: " Demo Quiz",
+          Title: "",
           Passcode: "",
-          TotalQue: 3,
-          EachScore: 2,
-          TimePro: 2,
+          TotalQue: 0,
+          EachScore: 0,
+          TimePro: 0,
           Questions: [],
           Students : {}
         

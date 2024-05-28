@@ -92,6 +92,7 @@ const WelcomePage = () => {
                 <form onSubmit={(event)=>{ FormSubmitFunc(event) }} className='sm:w-1/3 w-full m-auto bg-white flex flex-col items-center p-5 gap-4 max-md:gap-2'>
                 <h1 className='w-full text-center md:text-2xl text-xl font-bold'>Check Scores<span>
                     <i className="bi bi-x-circle float-right md:text-3xl text-2xl" onClick={() => { setFormVisible(false) }}></i></span></h1>
+                <p className='text-sm w-full text-center text-gray-500 font-bold'>Try Passcode "80808080" For Demo Quiz</p>
                     <p className='font-semibold text-md text-red-800'>{PasscodeState}</p>
                 <div className='w-full md:h-12  flex flex-row justify-center'>
                     <input type="password" placeholder='Enter Passcode' className='w-10/12 border-gray-600 border-2 p-2 md:text-lg text-md' onInput={()=>{setPasscodeState("")}} ref={PasscodeInp} required />

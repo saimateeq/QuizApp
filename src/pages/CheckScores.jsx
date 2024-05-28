@@ -6,11 +6,10 @@ import "../App.css"
 const CheckScores = () => {
   const Quiz = useSelector(state => state.Quiz.value)
   const Student = Quiz.Students
-  const [StdNo, setStdNo] = useState(0)
   const [TableArray, setTableArray] = useState([])
   const ShowDetailsFunc = (index) => {
     setTableArray(prevArray =>{
-      for (let i = index + 1 ; i <= index + (index +1)*(Quiz.TotalQue + 1);i++){
+      for (let i = index + 1 ; i <= index + Quiz.TotalQue + 1;i++){
           prevArray[i].show = true
       }
       return [...prevArray]
@@ -18,7 +17,7 @@ const CheckScores = () => {
   }
   const ShowLessFunc = (index) => {
     setTableArray(prevArray =>{
-      for (let i = index + 1 ; i <= index + (index +1)*(Quiz.TotalQue + 1);i++){
+      for (let i = index + 1 ; i <= index + Quiz.TotalQue + 1;i++){
           prevArray[i].show = false
       }
       return [...prevArray]
@@ -26,8 +25,7 @@ const CheckScores = () => {
   }
   useEffect(() => {
       Object.values(Student).forEach(value => {
-        setStdNo(prevNo => prevNo + 1)
-        setTableArray(prevArray => [...prevArray, { values: [StdNo, value.Std.Name, Quiz.TotalQue, value.Std.NoOfCorrectAns, value.Std.YourScore, "Show Detail"], type: "Std Details", show: true },
+        setTableArray(prevArray => [...prevArray, { values: [value.Std.Name, Quiz.TotalQue, value.Std.NoOfCorrectAns, value.Std.YourScore, "Show Detail"], type: "Std Details", show: true },
         { values: ["Question No", "Question", "Correct Answer", "Student's Answer", "Points"], type: "Heading", show: false }])
         value.Std.QueAns.map((question, index) => {
           setTableArray(prevArray => [...prevArray, { values: [index + 1, question.Que, question.CorrectOpt, question.SelectedOption, value.CorrectOpt === value.SelectedOption ? 2 : 0], type: "Que Details", show: false }])
@@ -41,7 +39,6 @@ const CheckScores = () => {
       <h1 className='text-3xl font-bold'>Quiz Title : <span className='text-sky-700 font-serif'>{Quiz.Title}</span></h1>
       <table className=''>
         <thead><tr>
-          <th className='md:px-3 px-1 border-2 border-black bg-blue-200'>Std No</th>
           <th className='md:px-3 px-1 border-2 border-black bg-blue-200'>Student Name</th>
           <th className='md:px-3 px-1 border-2 border-black bg-blue-200'>Total Questions</th>
           <th className='md:px-3 px-1 border-2 border-black bg-blue-200'>Correct Answers</th>
@@ -55,7 +52,7 @@ const CheckScores = () => {
                 {value.values.map((cell, cellIndex) => {
                   return (
                     <td className= {` ${value.type === "Std Details" ? "bg-gray-400 " : value.type === "Heading" ? "bg-gray-300" : "" } ${value.show ? "" : "hidden"} border-2 border-black px-3 py-2`}>
-                      {value.type === "Std Details" && cellIndex === 5 ? <button onClick={()=>{
+                      {value.type === "Std Details" && cellIndex === 4 ? <button onClick={()=>{
                         {TableArray[index + 1].show ? ShowLessFunc(index) : ShowDetailsFunc(index)}
                       }} className='bg-blue-300 font-bold p-2 rounded-lg border-2 border-black' >
                         {TableArray[index + 1].show ? "Show Less" : "Show Details"}</button> : <div>{cell}</div>}</td>

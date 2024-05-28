@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { UpdateScore, setDateOfSub, setQueAns } from '../reducers/StudentObjReducer'
+import { UpdateCorrectOpt, UpdateScore, setDateOfSub, setQueAns } from '../reducers/StudentObjReducer'
 import { Link, Element } from "react-scroll"
 import QuizAppContext from '../contexts/context'
 import { useNavigate } from 'react-router-dom'
@@ -36,7 +36,9 @@ const Quiz = () => {
             let array = [...AnsArray]
             array[QueIndex] = { SelectedOption: SelectedOption, Correct: true }
             setAnsArray([...array])
+            console.log(StudentObj.Obj.YourScore , QuizObj.EachScore);
             dispatch(UpdateScore(StudentObj.Obj.YourScore + QuizObj.EachScore))
+            dispatch(UpdateCorrectOpt(StudentObj.Obj.NoOfCorrectAns + 1))
         } else {
             let array = [...AnsArray]
             array[QueIndex] = { SelectedOption: SelectedOption, Correct: false }
@@ -71,7 +73,7 @@ const Quiz = () => {
         setQuizEndClass(Class)
         setQuizEndState(State)
         setQuizEnded(true)
-        set(push(ref(context?.database, StudentObj.QuizAddress)), {
+        set(push(ref(context?.database,StudentObj.QuizAddress)), {
             Std: StudentObj.Obj
         });
     }

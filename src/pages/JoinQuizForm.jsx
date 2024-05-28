@@ -40,7 +40,7 @@ const JoinQuizForm = () => {
                         if(PasscodeInp.current.value === Passcode){
                             dispatch(setQuiz(Quizs[QuizId].Quiz))
                             dispatch(setName(NameInp.current.value))
-                            dispatch(setQuizAddress(`/users/${key}/User/Quizs/${QuizId}/Quiz/Students/ `))
+                            dispatch(setQuizAddress(`/users/${key}/User/Quizs/${QuizId}/Quiz/Students`))
                             navigate("/Quiz")
                         }else{
                             setPasscodeState("Please Enter Correct Passcode")
@@ -55,6 +55,7 @@ const JoinQuizForm = () => {
         <div className='w-full'>
         <div className='md:w-1/2  w-full p-3 flex flex-col items-center bg-white absolute top-1/4 md:left-1/4 gap-3 border-2 border-gray-500'>
             <h1 className='font-bold text-2xl'>Join Quiz</h1>
+            <p className='text-md text-gray-500 font-bold'>Try Passcode "80808080" For Demo Quiz</p>
             <p className='font-semibold text-md text-red-800'>{PasscodeState}</p>
             <form className='w-full flex flex-col items-center gap-3 text-lg' onSubmit={(event) => {FormSubmitFunc(event)}}>
                 <input type="text" placeholder='Enter Your Name' className='w-full h-12 border-gray-600 border-2 p-2' ref={NameInp} />

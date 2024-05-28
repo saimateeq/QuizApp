@@ -10,8 +10,8 @@ export const UserObjSlice = createSlice({
             Quizs: {
                 Quiz: {
                     Students : {},
-                    Title: "my quiz",
-                    Passcode: "44444444",
+                    Title: "",
+                    Passcode: "",
                     TotalQue: 0,
                     EachScore: 0,
                     TimePro: 0,
