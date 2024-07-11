@@ -1,7 +1,7 @@
 import WelcomePage from './pages/WelcomePage'
 import MakeQuizPage from './pages/MakeQuizPage'
 import PreviewQuiz from './pages/PreviewQuiz'
-import  { BrowserRouter, Route, Routes } from "react-router-dom"
+import  { HashRouter, Route, Routes } from "react-router-dom"
 import { initializeApp  } from "firebase/app";
 import { getDatabase  } from "firebase/database";
 import QuizAppContext from './contexts/context';
@@ -31,7 +31,7 @@ const App = () => {
     value={{
       database,
     }}>
-    <BrowserRouter>
+    <HashRouter>
     <Routes>
       <Route path='/' Component={WelcomePage}/>
       <Route path='/makequiz' Component={MakeQuizPage}/>
@@ -44,7 +44,7 @@ const App = () => {
       <Route path='/CheckScores' Component={CheckScores}/>
       <Route path='/UIpage' Component={UIpage}/>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
     </QuizAppContext.Provider>
   )
   }
